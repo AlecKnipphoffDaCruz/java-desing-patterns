@@ -1,5 +1,9 @@
 package com.example.java_desing_patterns;
 
+import com.example.java_desing_patterns.strategy.ContextDiscont;
+import com.example.java_desing_patterns.strategy.NoDiscont;
+import com.example.java_desing_patterns.strategy.StudentDiscont;
+import com.example.java_desing_patterns.strategy.VIPDiscont;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,13 +19,12 @@ public class JavaDesingPatternsApplication {
 
 		SpringApplication.run(JavaDesingPatternsApplication.class, args);
 
-		Notification n = FactoryNotification.createNotification("email");
-		n.send("Hello from email");
+		NoDiscont noDiscont = new NoDiscont();
+		StudentDiscont studentDiscont = new StudentDiscont();
+		VIPDiscont vipDiscont = new VIPDiscont();
 
-
-		AppConfiguration config = AppConfiguration.getInstance();
-		System.out.println(config.getAmbient());
-
+		ContextDiscont contextDiscont = new ContextDiscont(100 ,studentDiscont);
+		System.out.println(contextDiscont.calculateDiscont());
 
 	}
 
