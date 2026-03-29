@@ -1,5 +1,9 @@
 package com.example.java_desing_patterns;
 
+import com.example.java_desing_patterns.observability.Order;
+import com.example.java_desing_patterns.observability.observers.EmailObserver;
+import com.example.java_desing_patterns.observability.observers.FNObserver;
+import com.example.java_desing_patterns.observability.observers.StockObserver;
 import com.example.java_desing_patterns.strategy.ContextDiscont;
 import com.example.java_desing_patterns.strategy.NoDiscont;
 import com.example.java_desing_patterns.strategy.StudentDiscont;
@@ -19,13 +23,12 @@ public class JavaDesingPatternsApplication {
 
 		SpringApplication.run(JavaDesingPatternsApplication.class, args);
 
-		NoDiscont noDiscont = new NoDiscont();
-		StudentDiscont studentDiscont = new StudentDiscont();
-		VIPDiscont vipDiscont = new VIPDiscont();
+			Order order = new Order();
+			order.addObserver(new EmailObserver());
+			order.addObserver(new FNObserver());
+			order.addObserver(new StockObserver());
 
-		ContextDiscont contextDiscont = new ContextDiscont(100 ,studentDiscont);
-		System.out.println(contextDiscont.calculateDiscont());
-
+			order.confirm();
 	}
 
 }
