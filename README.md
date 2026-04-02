@@ -19,7 +19,7 @@ Knowing patterns is also essential for technical interviews at international com
 ### Creational — how objects are created
 - [x] Factory — centralizes object creation, removes conditionals from business logic
 - [x] Singleton — ensures a class has only one instance throughout the application
-- [ ] Builder — constructs complex objects step by step
+- [x] Builder — constructs complex objects step by step
 - [ ] Prototype — creates new objects by cloning existing ones
 
 ### Behavioral — how objects communicate
@@ -28,7 +28,7 @@ Knowing patterns is also essential for technical interviews at international com
 - [ ] Command — encapsulates a request as an object
 
 ### Structural — how objects are composed
-- [ ] Decorator — adds behavior to objects dynamically without modifying their class
+- [x] Decorator — adds behavior to objects dynamically without modifying their class
 - [ ] Adapter — allows incompatible interfaces to work together
 
 ## Tech Stack
